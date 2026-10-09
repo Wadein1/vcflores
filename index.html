@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.title">VC Flores | Rose Bouquets in Waukesha, WI</title>
+  <meta name="description" content="Handmade rose bouquets for quinceañeras, birthdays and proposals. Ramos buchones, heart bouquets and more. Pick up only in Waukesha, WI. Order via Instagram DM.">
+  <meta property="og:title" content="VC Flores | Donde hay flores, hay amor">
+  <meta property="og:description" content="Handmade rose bouquets in Waukesha, WI. Order via Instagram DM.">
+  <meta property="og:image" content="images/p01.jpg">
+  <meta name="theme-color" content="#fff7f9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#160c11" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="images/profile.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="preload" as="image" href="images/p01.jpg">
+  <link rel="stylesheet" href="styles.css">
+
+  <script>
+    // Enable the motion layout before first paint so pinned sections don't jump.
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');
+  </script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#top" aria-label="VC Flores home" data-i18n-aria="aria.home">
+        <img src="images/profile.jpg" alt="" width="40" height="40">
+        <span>VC Flores</span>
+      </a>
+      <nav class="nav__links" aria-label="Main" data-i18n-aria="aria.main">
+        <a href="#collection" data-i18n="nav.collection">Bouquets</a>
+        <a href="#details" data-i18n="nav.details">Details</a>
+        <a href="#order" data-i18n="nav.order">How to order</a>
+        <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="lang" id="langToggle" type="button" aria-label="Cambiar a español">
+          <i class="ph ph-translate" aria-hidden="true"></i><span id="langLabel">ES</span>
+        </button>
+        <a class="btn btn--primary btn--sm" href="order.html">
+          <i class="ph ph-flower-lotus" aria-hidden="true"></i><span class="hide-sm" data-i18n="cta.order">Start an order</span><span class="show-sm" data-i18n="cta.orderShort">Order</span>
+        </a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menu" data-i18n-aria="nav.menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav aria-label="Mobile" data-i18n-aria="aria.mobile">
+      <a href="#collection" data-i18n="nav.collection">Bouquets</a>
+      <a href="#details" data-i18n="nav.details">Details</a>
+      <a href="#order" data-i18n="nav.order">How to order</a>
+      <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+      <a class="btn btn--primary btn--lg" href="order.html"><i class="ph ph-flower-lotus" aria-hidden="true"></i><span data-i18n="cta.order">Start an order</span></a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <canvas class="petals" id="petals" aria-hidden="true"></canvas>
+      <div class="hero__inner">
+        <div class="hero__copy" data-top>
+          <p class="eyebrow"><i class="ph ph-map-pin" aria-hidden="true"></i><span data-i18n="hero.eyebrow">Waukesha, WI. Pick up only</span></p>
+          <h1 class="hero__title" data-split data-split-now data-i18n-html="hero.title">Where there are flowers, <em>there is love.</em></h1>
+          <p class="hero__sub" data-reveal data-i18n="hero.sub">Big, beautiful rose bouquets for quinceañeras, birthdays and the big questions. Made to order in Waukesha.</p>
+          <div class="hero__ctas" data-reveal>
+            <a class="btn btn--primary" href="order.html">
+              <i class="ph ph-flower-lotus" aria-hidden="true"></i><span data-i18n="cta.order">Start an order</span>
+            </a>
+            <a class="btn btn--ghost" href="#collection"><span data-i18n="cta.see">See bouquets</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="stage" id="stage" aria-hidden="true">
+          <div class="stage__inner" id="stageInner">
+            <figure class="card3d card3d--left"><img src="images/p02.jpg" alt="" width="480" height="640"></figure>
+            <figure class="card3d card3d--right"><img src="images/p05.jpg" alt="" width="480" height="640"></figure>
+            <figure class="card3d card3d--front"><img src="images/p01.jpg" alt="" width="512" height="640" fetchpriority="high"></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marqueeTrack">
+        <div class="marquee__set">
+          <span data-i18n="mq1">Ramos buchones</span><i class="ph-fill ph-flower"></i>
+          <span data-i18n="mq2">Corazones de rosas</span><i class="ph-fill ph-flower"></i>
+          <span data-i18n="mq3">Quinceañeras</span><i class="ph-fill ph-flower"></i>
+          <span data-i18n="mq4">Cumpleaños</span><i class="ph-fill ph-flower"></i>
+          <span data-i18n="mq5">Flores amarillas</span><i class="ph-fill ph-flower"></i>
+          <span data-i18n="mq6">Propuestas</span><i class="ph-fill ph-flower"></i>
+        </div>
+        <div class="marquee__set">
+          <span data-i18n="mq1">Ramos buchones</span><i class="ph-fill ph-flower"></i>
+          <span data-i18n="mq2">Corazones de rosas</span><i class="ph-fill ph-flower"></i>
+          <span data-i18n="mq3">Quinceañeras</span><i class="ph-fill ph-flower"></i>
+          <span data-i18n="mq4">Cumpleaños</span><i class="ph-fill ph-flower"></i>
+          <span data-i18n="mq5">Flores amarillas</span><i class="ph-fill ph-flower"></i>
+          <span data-i18n="mq6">Propuestas</span><i class="ph-fill ph-flower"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SIGNATURE COLLECTION (horizontal 3D coverflow) ============ -->
+    <section class="collection" id="collection" aria-labelledby="collectionTitle">
+      <div class="collection__track" id="collectionTrack">
+        <div class="collection__intro">
+          <h2 class="h2" id="collectionTitle" data-split data-i18n="collection.title">Signature bouquets</h2>
+          <p class="lede" data-reveal data-i18n="collection.sub">Every one is built by hand to order. Pick a style, then make it yours.</p>
+        </div>
+
+        <article class="bouquet">
+          <div class="bouquet__img"><img src="images/p01.jpg" alt="Round ramo buchón of pink, purple and white roses with butterflies" data-i18n-alt="alt1" loading="lazy" width="512" height="640"></div>
+          <h3 data-i18n="b1.name">Ramo Buchón</h3>
+          <p data-i18n="b1">Packed tight and perfectly round. Mix pinks, purples and whites, or go all one color.</p>
+        </article>
+        <article class="bouquet">
+          <div class="bouquet__img"><img src="images/p02.jpg" alt="Red rose bouquet with a silver crown, butterflies and a Feliz 18 ribbon" data-i18n-alt="alt2" loading="lazy" width="480" height="640"></div>
+          <h3 data-i18n="b2.name">Feliz 18</h3>
+          <p data-i18n="b2">75 red roses with a crown, butterflies and a birthday ribbon.</p>
+        </article>
+        <article class="bouquet">
+          <div class="bouquet__img"><img src="images/p10.jpg" alt="Heart-shaped bouquet of red roses wrapped in white with a tiara" data-i18n-alt="alt3" loading="lazy" width="361" height="640"></div>
+          <h3 data-i18n="b3.name">Corazón con corona</h3>
+          <p data-i18n="b3">Red roses shaped into a heart, wrapped in white and topped with a tiara.</p>
+        </article>
+        <article class="bouquet">
+          <div class="bouquet__img"><img src="images/p11.jpg" alt="Heart of red roses with a ribbon asking ¿Quieres ser mi novia?" data-i18n-alt="alt4" loading="lazy" width="512" height="640"></div>
+          <h3 data-i18n="b4.name">¿Quieres ser mi novia?</h3>
+          <p data-i18n="b4">Ask the question with a heart of red roses and your words on the ribbon.</p>
+        </article>
+        <article class="bouquet">
+          <div class="bouquet__img"><img src="images/p05.jpg" alt="Yellow bouquet of sunflowers, gerberas and yellow roses" data-i18n-alt="alt5" loading="lazy" width="480" height="640"></div>
+          <h3 data-i18n="b5.name">Flores amarillas</h3>
+          <p data-i18n="b5">Sunflowers, gerberas and yellow roses. Made for Yellow Flower Day, perfect any day.</p>
+        </article>
+        <article class="bouquet">
+          <div class="bouquet__img"><img src="images/p06.jpg" alt="Pink and cream rose bouquet with baby's breath and a satin bow" data-i18n-alt="alt6" loading="lazy" width="361" height="640"></div>
+          <h3 data-i18n="b6.name">Rosa y blanco</h3>
+          <p data-i18n="b6">Pink and cream roses, baby's breath and a satin bow with a custom message.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ ZOOM PARALLAX ============ -->
+    <section class="zoom" id="zoom" aria-labelledby="zoomTitle">
+      <div class="zoom__el zoom__el--center"><div class="zoom__img"><img src="images/p04.jpg" alt="A table full of yellow bouquets ready for pickup" data-i18n-alt="alt7" loading="lazy"></div></div>
+      <div class="zoom__el zoom__el--1"><div class="zoom__img"><img src="images/p06.jpg" alt="" loading="lazy"></div></div>
+      <div class="zoom__el zoom__el--2"><div class="zoom__img"><img src="images/p10.jpg" alt="" loading="lazy"></div></div>
+      <div class="zoom__el zoom__el--3"><div class="zoom__img"><img src="images/p07.jpg" alt="" loading="lazy"></div></div>
+      <div class="zoom__el zoom__el--4"><div class="zoom__img"><img src="images/p11.jpg" alt="" loading="lazy"></div></div>
+      <div class="zoom__el zoom__el--5"><div class="zoom__img"><img src="images/p03.jpg" alt="" loading="lazy"></div></div>
+      <div class="zoom__el zoom__el--6"><div class="zoom__img"><img src="images/p05.jpg" alt="" loading="lazy"></div></div>
+      <div class="zoom__veil"></div>
+      <div class="zoom__copy">
+        <h2 class="h2 h2--light" id="zoomTitle" data-i18n="zoom.title">Every bouquet starts with your idea.</h2>
+        <p data-i18n="zoom.sub">Tell us the colors, the occasion and the name on the ribbon. We take it from there.</p>
+      </div>
+    </section>
+
+    <!-- ============ DETAILS BENTO ============ -->
+    <section class="details section" id="details" aria-labelledby="detailsTitle">
+      <div class="container">
+        <h2 class="h2" id="detailsTitle" data-split data-i18n="details.title">The little things make it yours</h2>
+        <div class="bento">
+          <article class="tile tile--a" data-tilt data-reveal>
+            <img src="images/p10.jpg" alt="Tiara set on a heart of red roses" data-i18n-alt="alt8" loading="lazy">
+            <div class="tile__body">
+              <i class="ph ph-crown-simple" aria-hidden="true"></i>
+              <h3 data-i18n="d1.t">Crowns &amp; tiaras</h3>
+              <p data-i18n="d1">For quinceañeras, birthdays and anyone who deserves one.</p>
+            </div>
+          </article>
+          <article class="tile tile--b" data-tilt data-reveal>
+            <img src="images/p02.jpg" alt="White and gold butterflies on red roses" data-i18n-alt="alt9" loading="lazy">
+            <div class="tile__body">
+              <i class="ph ph-butterfly" aria-hidden="true"></i>
+              <h3 data-i18n="d2.t">Butterflies</h3>
+              <p data-i18n="d2">Gold or white, scattered across the roses.</p>
+            </div>
+          </article>
+          <article class="tile tile--c" data-tilt data-reveal>
+            <img src="images/p11.jpg" alt="Satin ribbon with a custom message across red roses" data-i18n-alt="alt10" loading="lazy">
+            <div class="tile__body">
+              <i class="ph ph-heart" aria-hidden="true"></i>
+              <h3 data-i18n="d3.t">Ribbons with a message</h3>
+              <p data-i18n="d3">A name, a date or the big question.</p>
+            </div>
+          </article>
+          <article class="tile tile--d" data-tilt data-reveal>
+            <img src="images/p08.jpg" alt="Handwritten card tucked into a pink bouquet" data-i18n-alt="alt11" loading="lazy">
+            <div class="tile__body">
+              <i class="ph ph-pen-nib" aria-hidden="true"></i>
+              <h3 data-i18n="d4.t">Handwritten notes</h3>
+              <p data-i18n="d4">Add a card and say what you mean, in your own words.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW TO ORDER ============ -->
+    <section class="order section" id="order" aria-labelledby="orderTitle">
+      <div class="container order__grid">
+        <div class="order__head">
+          <h2 class="h2" id="orderTitle" data-split data-i18n="order.title">Ordering is simple</h2>
+          <p class="lede" data-reveal data-i18n="order.note">Planning for a big date? Message us early so we can save your spot.</p>
+          <a class="btn btn--primary" data-reveal href="order.html">
+            <i class="ph ph-flower-lotus" aria-hidden="true"></i><span data-i18n="cta.order">Start an order</span>
+          </a>
+        </div>
+        <ol class="steps" id="steps">
+          <li class="steps__line" aria-hidden="true"><span id="stepsFill"></span></li>
+          <li class="step">
+            <span class="step__icon"><i class="ph ph-flower-lotus" aria-hidden="true"></i></span>
+            <div>
+              <h3 data-i18n="s1.t">Pick your style</h3>
+              <p data-i18n="s1">Use our order builder to choose a bouquet, colors and extras like a crown or a name ribbon.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__icon"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i></span>
+            <div>
+              <h3 data-i18n="s2.t">Send us a DM</h3>
+              <p data-i18n="s2">We turn your choices into a message. Paste it to @vcfloress on Instagram and send.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__icon"><i class="ph ph-storefront" aria-hidden="true"></i></span>
+            <div>
+              <h3 data-i18n="s3.t">Pick it up</h3>
+              <p data-i18n="s3">We confirm the details and pickup time. Pick up only, in Waukesha, WI.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 3D RING GALLERY ============ -->
+    <section class="gallery" id="gallery" aria-labelledby="galleryTitle">
+      <div class="gallery__head">
+        <h2 class="h2" id="galleryTitle" data-i18n="gallery.title">Recent work</h2>
+        <p class="lede" data-i18n="gallery.sub">Tap any bouquet to see it up close.</p>
+      </div>
+      <div class="ring-stage">
+        <div class="ring" id="ring">
+          <button class="ring__item" style="--i:0" type="button"><img src="images/p01.jpg" alt="Pink, purple and white ramo buchón" data-i18n-alt="alt12" loading="lazy"></button>
+          <button class="ring__item" style="--i:1" type="button"><img src="images/p02.jpg" alt="Feliz 18 bouquet with 75 red roses and a crown" data-i18n-alt="alt13" loading="lazy"></button>
+          <button class="ring__item" style="--i:2" type="button"><img src="images/p04.jpg" alt="Yellow Flower Day bouquets lined up for pickup" data-i18n-alt="alt14" loading="lazy"></button>
+          <button class="ring__item" style="--i:3" type="button"><img src="images/p05.jpg" alt="Sunflower and yellow rose bouquet" data-i18n-alt="alt15" loading="lazy"></button>
+          <button class="ring__item" style="--i:4" type="button"><img src="images/p06.jpg" alt="Pink and cream roses with a satin bow" data-i18n-alt="alt16" loading="lazy"></button>
+          <button class="ring__item" style="--i:5" type="button"><img src="images/p07.jpg" alt="Pink rose bouquet with a letter charm and bow" data-i18n-alt="alt17" loading="lazy"></button>
+          <button class="ring__item" style="--i:6" type="button"><img src="images/p08.jpg" alt="Handwritten note in a pink bouquet" data-i18n-alt="alt18" loading="lazy"></button>
+          <button class="ring__item" style="--i:7" type="button"><img src="images/p10.jpg" alt="Red rose heart with a tiara" data-i18n-alt="alt19" loading="lazy"></button>
+          <button class="ring__item" style="--i:8" type="button"><img src="images/p11.jpg" alt="¿Quieres ser mi novia? rose heart" data-i18n-alt="alt20" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact section" id="contact" aria-labelledby="contactTitle">
+      <div class="container contact__inner">
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 200 200" class="seal__text">
+            <defs><path id="circlePath" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+            <text><textPath href="#circlePath" textLength="486" lengthAdjust="spacing" data-i18n="seal">Donde hay flores, hay amor ✿ VC Flores ✿</textPath></text>
+          </svg>
+          <img src="images/profile.jpg" alt="" width="150" height="150">
+        </div>
+        <h2 class="h2 contact__title" data-split data-i18n="contact.title">Tell us what you're celebrating.</h2>
+        <p class="lede" data-reveal data-i18n="contact.sub">Build your order online, or message us on Instagram. Follow along on TikTok too.</p>
+        <div class="contact__ctas" data-reveal>
+          <a class="btn btn--primary btn--lg" href="order.html">
+            <i class="ph ph-flower-lotus" aria-hidden="true"></i><span data-i18n="cta.order">Start an order</span>
+          </a>
+          <a class="btn btn--ghost btn--lg" href="https://ig.me/m/vcfloress" target="_blank" rel="noopener">
+            <i class="ph ph-instagram-logo" aria-hidden="true"></i><span data-i18n="cta.dm">Message us</span>
+          </a>
+          <a class="btn btn--ghost btn--lg" href="https://www.tiktok.com/@vcfloress" target="_blank" rel="noopener">
+            <i class="ph ph-tiktok-logo" aria-hidden="true"></i><span>TikTok</span>
+          </a>
+        </div>
+        <ul class="facts" data-reveal>
+          <li><i class="ph ph-map-pin" aria-hidden="true"></i><span data-i18n="fact.loc">Waukesha, WI</span></li>
+          <li><i class="ph ph-storefront" aria-hidden="true"></i><span data-i18n="fact.pickup">Pick up only</span></li>
+          <li><i class="ph ph-heart" aria-hidden="true"></i><span data-i18n="fact.followers">2,600+ followers on Instagram</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="brand" href="#top"><img src="images/profile.jpg" alt="" width="32" height="32"><span>VC Flores</span></a>
+      <div class="footer__links">
+        <a href="https://www.instagram.com/vcfloress/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph ph-instagram-logo"></i>@vcfloress</a>
+        <a href="https://www.tiktok.com/@vcfloress" target="_blank" rel="noopener" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i>@vcfloress</a>
+      </div>
+      <p class="footer__copy">&copy; <span data-year>2026</span> VC Flores. Waukesha, WI.</p>
+    </div>
+  </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <dialog class="lightbox" id="lightbox" aria-label="Bouquet photo" data-i18n-aria="aria.photo">
+    <button class="lightbox__btn lightbox__close" id="lbClose" type="button" aria-label="Close" data-i18n-aria="aria.close"><i class="ph ph-x" aria-hidden="true"></i></button>
+    <button class="lightbox__btn lightbox__prev" id="lbPrev" type="button" aria-label="Previous photo" data-i18n-aria="aria.prev"><i class="ph ph-caret-left" aria-hidden="true"></i></button>
+    <img id="lbImg" alt="">
+    <button class="lightbox__btn lightbox__next" id="lbNext" type="button" aria-label="Next photo" data-i18n-aria="aria.next"><i class="ph ph-caret-right" aria-hidden="true"></i></button>
+  </dialog>
+</body>
+</html>

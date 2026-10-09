@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.orderTitle">Order a Bouquet | VC Flores</title>
+  <meta name="description" content="Build your rose bouquet order: style, roses, colors, crowns, butterflies and ribbons. Pick up in Waukesha, WI. Send it to VC Flores on Instagram.">
+  <meta property="og:title" content="Build your bouquet | VC Flores">
+  <meta property="og:description" content="Choose your bouquet and send your order to VC Flores on Instagram.">
+  <meta property="og:image" content="images/p02.jpg">
+  <meta name="theme-color" content="#fff7f9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#160c11" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="images/profile.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="order.css">
+
+  <script>
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');
+  </script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script defer src="main.js"></script>
+  <script defer src="order.js"></script>
+</head>
+<body class="order-page">
+  <a class="skip" href="#builder" data-i18n="skip">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="brand" href="index.html" aria-label="VC Flores home" data-i18n-aria="aria.home">
+        <img src="images/profile.jpg" alt="" width="40" height="40">
+        <span>VC Flores</span>
+      </a>
+      <nav class="nav__links" aria-label="Main" data-i18n-aria="aria.main">
+        <a href="index.html#collection" data-i18n="nav.collection">Bouquets</a>
+        <a href="index.html#details" data-i18n="nav.details">Details</a>
+        <a href="index.html#order" data-i18n="nav.order">How to order</a>
+        <a href="index.html#gallery" data-i18n="nav.gallery">Gallery</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="lang" id="langToggle" type="button" aria-label="Cambiar a español">
+          <i class="ph ph-translate" aria-hidden="true"></i><span id="langLabel">ES</span>
+        </button>
+        <a class="btn btn--ghost btn--sm" href="https://ig.me/m/vcfloress" target="_blank" rel="noopener">
+          <i class="ph ph-instagram-logo" aria-hidden="true"></i><span class="hide-sm" data-i18n="cta.dm">Message us</span><span class="show-sm">DM</span>
+        </a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menu" data-i18n-aria="nav.menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="o-progress" aria-hidden="true"><span id="oProgress"></span></div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav aria-label="Mobile" data-i18n-aria="aria.mobile">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="index.html#collection" data-i18n="nav.collection">Bouquets</a>
+      <a href="index.html#details" data-i18n="nav.details">Details</a>
+      <a href="index.html#gallery" data-i18n="nav.gallery">Gallery</a>
+      <a class="btn btn--primary btn--lg" href="https://ig.me/m/vcfloress" target="_blank" rel="noopener"><i class="ph ph-instagram-logo" aria-hidden="true"></i><span data-i18n="cta.dm">Message us</span></a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- ============ ORDER HERO ============ -->
+    <section class="o-hero">
+      <canvas class="petals" id="petals" aria-hidden="true"></canvas>
+      <div class="o-hero__inner">
+        <div class="o-hero__copy" data-top>
+          <h1 class="hero__title o-hero__title" data-split data-split-now data-i18n-html="o.title">Build your <em>bouquet.</em></h1>
+          <p class="hero__sub" data-reveal data-i18n="o.sub">Pick a few options. We'll turn them into a message you can send us on Instagram.</p>
+        </div>
+        <div class="fan" id="fan" aria-hidden="true">
+          <div class="fan__inner" id="fanInner">
+            <figure class="fan__card"><img src="images/p05.jpg" alt=""></figure>
+            <figure class="fan__card"><img src="images/p10.jpg" alt=""></figure>
+            <figure class="fan__card"><img src="images/p01.jpg" alt=""></figure>
+            <figure class="fan__card"><img src="images/p02.jpg" alt=""></figure>
+            <figure class="fan__card"><img src="images/p06.jpg" alt=""></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BUILDER ============ -->
+    <section class="builder" id="builder">
+      <div class="container builder__grid">
+        <form class="o-form" id="orderForm" novalidate>
+
+          <!-- Style -->
+          <fieldset class="o-field" id="fsStyle" aria-describedby="err-style">
+            <legend class="o-legend"><i class="ph ph-flower-lotus" aria-hidden="true"></i><span data-i18n="o.style">Choose a style</span></legend>
+            <div class="styles" id="styleGrid">
+              <label class="style-opt">
+                <input type="radio" name="style" value="buchon" data-img="images/p01.jpg">
+                <span class="style-opt__img"><img src="images/p01.jpg" alt="" loading="lazy"></span>
+                <span class="style-opt__name" data-i18n="b1.name">Ramo Buchón</span>
+                <i class="ph-fill ph-check-circle style-opt__check" aria-hidden="true"></i>
+              </label>
+              <label class="style-opt">
+                <input type="radio" name="style" value="feliz18" data-img="images/p02.jpg">
+                <span class="style-opt__img"><img src="images/p02.jpg" alt="" loading="lazy"></span>
+                <span class="style-opt__name" data-i18n="b2.name">Feliz 18</span>
+                <i class="ph-fill ph-check-circle style-opt__check" aria-hidden="true"></i>
+              </label>
+              <label class="style-opt">
+                <input type="radio" name="style" value="corazon" data-img="images/p10.jpg">
+                <span class="style-opt__img"><img src="images/p10.jpg" alt="" loading="lazy"></span>
+                <span class="style-opt__name" data-i18n="b3.name">Corazón con corona</span>
+                <i class="ph-fill ph-check-circle style-opt__check" aria-hidden="true"></i>
+              </label>
+              <label class="style-opt">
+                <input type="radio" name="style" value="novia" data-img="images/p11.jpg">
+                <span class="style-opt__img"><img src="images/p11.jpg" alt="" loading="lazy"></span>
+                <span class="style-opt__name" data-i18n="b4.name">¿Quieres ser mi novia?</span>
+                <i class="ph-fill ph-check-circle style-opt__check" aria-hidden="true"></i>
+              </label>
+              <label class="style-opt">
+                <input type="radio" name="style" value="amarillas" data-img="images/p05.jpg">
+                <span class="style-opt__img"><img src="images/p05.jpg" alt="" loading="lazy"></span>
+                <span class="style-opt__name" data-i18n="b5.name">Flores amarillas</span>
+                <i class="ph-fill ph-check-circle style-opt__check" aria-hidden="true"></i>
+              </label>
+              <label class="style-opt">
+                <input type="radio" name="style" value="rosablanco" data-img="images/p06.jpg">
+                <span class="style-opt__img"><img src="images/p06.jpg" alt="" loading="lazy"></span>
+                <span class="style-opt__name" data-i18n="b6.name">Rosa y blanco</span>
+                <i class="ph-fill ph-check-circle style-opt__check" aria-hidden="true"></i>
+              </label>
+              <label class="style-opt style-opt--custom">
+                <input type="radio" name="style" value="custom" data-img="images/p07.jpg">
+                <span class="style-opt__img style-opt__img--icon"><i class="ph ph-sparkle" aria-hidden="true"></i></span>
+                <span class="style-opt__name"><span data-i18n="o.custom">Something custom</span><small data-i18n="o.customSub">Tell us your idea in the notes</small></span>
+                <i class="ph-fill ph-check-circle style-opt__check" aria-hidden="true"></i>
+              </label>
+            </div>
+            <p class="o-error" id="err-style" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+          </fieldset>
+
+          <!-- Roses -->
+          <fieldset class="o-field" data-reveal>
+            <legend class="o-legend"><i class="ph ph-gift" aria-hidden="true"></i><span data-i18n="o.size">How many roses?</span></legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="roses" value="25"><span>25</span></label>
+              <label class="chip"><input type="radio" name="roses" value="50"><span>50</span></label>
+              <label class="chip"><input type="radio" name="roses" value="75"><span>75</span></label>
+              <label class="chip"><input type="radio" name="roses" value="100"><span>100</span></label>
+              <label class="chip"><input type="radio" name="roses" value="200"><span>200</span></label>
+              <label class="chip"><input type="radio" name="roses" value="unsure"><span data-i18n="o.unsure">Not sure yet</span></label>
+            </div>
+            <p class="o-help" data-i18n="o.sizeHelp">Not sure? We can help you choose by DM.</p>
+          </fieldset>
+
+          <!-- Colors -->
+          <fieldset class="o-field" data-reveal>
+            <legend class="o-legend"><i class="ph ph-palette" aria-hidden="true"></i><span data-i18n="o.colors">Colors</span></legend>
+            <div class="chips">
+              <label class="chip chip--swatch"><input type="checkbox" name="colors" value="red"><span><b class="sw" style="--c:#b3122f"></b><span data-i18n="c.red">Red</span></span></label>
+              <label class="chip chip--swatch"><input type="checkbox" name="colors" value="pink"><span><b class="sw" style="--c:#f08cab"></b><span data-i18n="c.pink">Pink</span></span></label>
+              <label class="chip chip--swatch"><input type="checkbox" name="colors" value="white"><span><b class="sw" style="--c:#fbf6f1"></b><span data-i18n="c.white">White</span></span></label>
+              <label class="chip chip--swatch"><input type="checkbox" name="colors" value="purple"><span><b class="sw" style="--c:#8e4fa3"></b><span data-i18n="c.purple">Purple</span></span></label>
+              <label class="chip chip--swatch"><input type="checkbox" name="colors" value="yellow"><span><b class="sw" style="--c:#f4c22b"></b><span data-i18n="c.yellow">Yellow</span></span></label>
+              <label class="chip chip--swatch"><input type="checkbox" name="colors" value="mixed"><span><b class="sw sw--mixed"></b><span data-i18n="c.mixed">Mixed</span></span></label>
+            </div>
+            <p class="o-help" data-i18n="o.colorsHelp">Pick as many as you like.</p>
+          </fieldset>
+
+          <!-- Extras -->
+          <fieldset class="o-field" data-reveal>
+            <legend class="o-legend"><i class="ph ph-sparkle" aria-hidden="true"></i><span data-i18n="o.extras">Extras</span></legend>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="extras" value="crown"><span><i class="ph ph-crown-simple" aria-hidden="true"></i><span data-i18n="e.crown">Crown or tiara</span></span></label>
+              <label class="chip"><input type="checkbox" name="extras" value="butterflies"><span><i class="ph ph-butterfly" aria-hidden="true"></i><span data-i18n="e.butterflies">Butterflies</span></span></label>
+              <label class="chip"><input type="checkbox" name="extras" value="ribbon"><span><i class="ph ph-heart" aria-hidden="true"></i><span data-i18n="e.ribbon">Ribbon with a message</span></span></label>
+              <label class="chip"><input type="checkbox" name="extras" value="note"><span><i class="ph ph-pen-nib" aria-hidden="true"></i><span data-i18n="e.note">Handwritten note</span></span></label>
+              <label class="chip"><input type="checkbox" name="extras" value="breath"><span><i class="ph ph-flower" aria-hidden="true"></i><span data-i18n="e.breath">Baby's breath</span></span></label>
+            </div>
+            <div class="reveal-field" id="ribbonWrap" hidden>
+              <label class="o-label" for="ribbonText" data-i18n="o.ribbonLabel">Ribbon text</label>
+              <input class="o-input" id="ribbonText" name="ribbonText" type="text" maxlength="40" autocomplete="off" aria-describedby="ribbonHelp">
+              <p class="o-help" id="ribbonHelp" data-i18n="o.ribbonHelp">Example: Feliz 15 Ana</p>
+            </div>
+            <div class="reveal-field" id="noteWrap" hidden>
+              <label class="o-label" for="noteText" data-i18n="o.noteLabel">Note card message</label>
+              <textarea class="o-input" id="noteText" name="noteText" rows="3" maxlength="300" aria-describedby="noteHelp"></textarea>
+              <p class="o-help" id="noteHelp" data-i18n="o.noteHelp">We write it by hand on a card.</p>
+            </div>
+          </fieldset>
+
+          <!-- Pickup -->
+          <fieldset class="o-field" data-reveal>
+            <legend class="o-legend"><i class="ph ph-calendar-blank" aria-hidden="true"></i><span data-i18n="o.pickup">Pickup details</span></legend>
+            <div class="o-row">
+              <div class="o-group">
+                <label class="o-label" for="date" data-i18n="o.date">Pickup date</label>
+                <input class="o-input" id="date" name="date" type="date" required aria-describedby="err-date">
+                <p class="o-error" id="err-date" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+              </div>
+              <div class="o-group">
+                <label class="o-label" for="time" data-i18n="o.time">Preferred time</label>
+                <select class="o-input" id="time" name="time">
+                  <option value="any" data-i18n="t.any">Any time</option>
+                  <option value="morning" data-i18n="t.morning">Morning</option>
+                  <option value="afternoon" data-i18n="t.afternoon">Afternoon</option>
+                  <option value="evening" data-i18n="t.evening">Evening</option>
+                </select>
+              </div>
+            </div>
+            <div class="o-row">
+              <div class="o-group">
+                <label class="o-label" for="name" data-i18n="o.name">Your name</label>
+                <input class="o-input" id="name" name="name" type="text" autocomplete="name" required aria-describedby="err-name">
+                <p class="o-error" id="err-name" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+              </div>
+              <div class="o-group">
+                <label class="o-label" for="phone" data-i18n="o.phone">Phone (optional)</label>
+                <input class="o-input" id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="phoneHelp">
+                <p class="o-help" id="phoneHelp" data-i18n="o.phoneHelp">Only if you want a call or text back.</p>
+              </div>
+            </div>
+            <div class="o-group">
+              <label class="o-label" for="notes" data-i18n="o.notes">Anything else? (optional)</label>
+              <textarea class="o-input" id="notes" name="notes" rows="3" maxlength="600" aria-describedby="notesHelp"></textarea>
+              <p class="o-help" id="notesHelp" data-i18n="o.notesHelp">Occasion, inspiration, budget. Whatever helps.</p>
+            </div>
+            <p class="o-pickup"><i class="ph ph-map-pin" aria-hidden="true"></i><span data-i18n="o.pickupNote">Pick up only, in Waukesha, WI. We confirm the exact time by DM.</span></p>
+          </fieldset>
+        </form>
+
+        <!-- ============ SUMMARY ============ -->
+        <aside class="o-summary" id="summary" aria-labelledby="sumTitle">
+          <div class="sum-card" id="sumCard">
+            <div class="sum-preview">
+              <div class="sum-flip" id="sumFlip">
+                <img id="sumImg" src="images/p07.jpg" alt="">
+                <div class="sum-empty-art" id="sumEmptyArt"><i class="ph ph-flower-lotus" aria-hidden="true"></i></div>
+              </div>
+            </div>
+            <div class="sum-body">
+              <h2 class="sum-title" id="sumTitle" data-i18n="o.summary">Your order</h2>
+              <p class="sum-empty" id="sumEmpty" data-i18n="o.empty">Choose a style to get started.</p>
+              <dl class="sum-list" id="sumList"></dl>
+
+              <label class="o-label sum-msg-label" for="msgOut" data-i18n="o.preview">Message preview</label>
+              <textarea class="sum-msg" id="msgOut" readonly rows="7"></textarea>
+
+              <p class="o-error o-error--box" id="formError" role="alert" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span data-i18n="o.errSummary">A few things are missing. Check the highlighted fields.</span></p>
+
+              <div class="sum-actions">
+                <a class="btn btn--primary btn--lg" id="sendBtn" href="https://ig.me/m/vcfloress" target="_blank" rel="noopener">
+                  <i class="ph ph-instagram-logo" aria-hidden="true"></i><span data-i18n="o.send">Send on Instagram</span>
+                </a>
+                <button class="btn btn--ghost" id="copyBtn" type="button"><i class="ph ph-copy" aria-hidden="true"></i><span data-i18n="o.copy">Copy message</span></button>
+              </div>
+              <p class="toast" id="toast" role="status" aria-live="polite"></p>
+              <p class="sum-how" data-i18n="o.how">Instagram doesn't allow pre-filled messages, so we copy it for you. Just paste it in the chat and send.</p>
+              <button class="link-btn" id="resetBtn" type="button"><i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i><span data-i18n="o.reset">Start over</span></button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile review bar -->
+  <div class="o-bar" id="oBar">
+    <div class="o-bar__info">
+      <strong id="barStyle">VC Flores</strong>
+      <span id="barProgress">0 of 4 done</span>
+    </div>
+    <a class="btn btn--primary btn--sm" href="#summary"><span data-i18n="o.review">Review</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="brand" href="index.html"><img src="images/profile.jpg" alt="" width="32" height="32"><span>VC Flores</span></a>
+      <div class="footer__links">
+        <a href="https://www.instagram.com/vcfloress/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph ph-instagram-logo"></i>@vcfloress</a>
+        <a href="https://www.tiktok.com/@vcfloress" target="_blank" rel="noopener" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i>@vcfloress</a>
+      </div>
+      <p class="footer__copy">&copy; <span data-year>2026</span> VC Flores. Waukesha, WI.</p>
+    </div>
+  </footer>
+</body>
+</html>
