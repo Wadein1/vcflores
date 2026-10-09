@@ -112,10 +112,11 @@
 
   function swapPreview(src, animate) {
     if (!(animate && VC.motion)) { el.img.src = src; return; }
+    // Flat crossfade when the chosen style changes (no 3D flip)
     gsap.timeline()
-      .to(el.flip, { rotationY: 90, scale: 0.92, duration: 0.25, ease: 'power2.in' })
+      .to(el.img, { opacity: 0, duration: 0.2, ease: 'power1.out' })
       .add(() => { el.img.src = src; })
-      .fromTo(el.flip, { rotationY: -90 }, { rotationY: 0, scale: 1, duration: 0.6, ease: 'back.out(1.6)' });
+      .to(el.img, { opacity: 1, duration: 0.35, ease: 'power1.in' });
   }
 
   /* ---------- validation ---------- */
@@ -314,18 +315,9 @@
     scrollTrigger: { trigger: '#styleGrid', start: 'top 92%' }
   });
 
-  // Desktop: summary preview tilts toward the pointer
-  if (VC.finePointer) {
-    VC.pointerTilt(el.flip, $('.sum-preview'), { rx: 20, ry: 30 });
-  } else {
-    // Touch: the preview bouquet sways gently so the 3D card still reads on phones
-    // (y + rotationZ only, so it never fights the rotationY flip when the style changes)
-    gsap.fromTo(el.flip, { y: 4, rotationZ: -3 }, { y: -8, rotationZ: 3, duration: 3, ease: 'sine.inOut', yoyo: true, repeat: -1 });
-  }
-
-  // Summary card rises in
+  // Summary card rises in (flat, no 3D tilt)
   gsap.from('#sumCard', {
-    y: 60, rotationX: -14, transformPerspective: 1000, opacity: 0, duration: 1.2, ease: 'expo.out',
+    y: 60, opacity: 0, duration: 1.2, ease: 'expo.out', clearProps: 'transform',
     scrollTrigger: { trigger: '#summary', start: 'top 90%' }
   });
 })();
