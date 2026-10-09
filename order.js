@@ -308,15 +308,10 @@
     scrollTrigger: { trigger: '.o-hero', start: 'top top', end: 'bottom top', scrub: 1 }
   });
 
-  // Style tiles flip in with depth
-  // Desktop: tiles swing in with depth. Phones: a short rise + fade reads cleaner on a narrow grid.
-  const tileFrom = VC.finePointer
-    ? { rotationY: -70, z: -200, opacity: 0, transformOrigin: '0% 50%', duration: 1.1, stagger: 0.07 }
-    : { y: 36, scale: 0.96, opacity: 0, duration: 0.8, stagger: 0.06 };
+  // Style tiles: a simple rise + fade (no 3D flip or hover tilt)
   gsap.from('.style-opt', {
-    ...tileFrom, ease: 'expo.out',
-    scrollTrigger: { trigger: '#styleGrid', start: 'top 92%' },
-    onComplete: () => { if (VC.finePointer) $$('.style-opt').forEach(opt => VC.pointerTilt(opt, opt, { rx: 14, ry: 14 })); }
+    y: 36, opacity: 0, duration: 0.8, stagger: 0.06, ease: 'expo.out', clearProps: 'transform',
+    scrollTrigger: { trigger: '#styleGrid', start: 'top 92%' }
   });
 
   // Desktop: summary preview tilts toward the pointer
